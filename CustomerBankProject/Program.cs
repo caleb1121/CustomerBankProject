@@ -36,9 +36,15 @@ namespace CustomerBankProject
 
 
 
-            foreach (Customer customer in Customers)
+            foreach (Customer customer in Customers) //used to loop through every customer and perform action
             {
-                Console.WriteLine(customer.UniqueID);
+                Console.WriteLine(customer.UniqueID); // this is the action 
+                Console.WriteLine(customer.LastName); // this is the action 
+                Console.WriteLine(customer.FirstName); // this is the action 
+                Console.WriteLine("£" + customer.CustomerMoney); // this is the action 
+                Console.WriteLine(customer.BaseAcceptanceChance + "%"); // this is the action 
+
+                Console.WriteLine("");
             }
 
         }
