@@ -42,6 +42,7 @@ namespace CustomerBankProject
 
             int PersonIDCounter = 0; // incremental counter "customer1 customer2... etc"
             List<Customer> Customers = new List<Customer>(); // used to store all the customers generated using a list
+            List<BankAccount> bankAccounts = new List<BankAccount>(); // used to store all the bank accounts
 
 
 
@@ -119,6 +120,11 @@ namespace CustomerBankProject
 
                     Console.WriteLine("");
 
+
+                    // generate unique bank number
+                    
+
+
                     Console.WriteLine("Bank account creation successful");
                     Console.WriteLine("New bank account details:");
                     Console.WriteLine("Account Name: " + customer.LastName + " " + customer.FirstName);
@@ -166,6 +172,12 @@ namespace CustomerBankProject
                     Console.WriteLine("Talking to customer about bank account types...");
 
 
+
+
+
+                    bankAccounts.Add(new BankAccount()); // will be used in the future to create and upload bank accounts to list of bank accounts
+
+
                 }
 
 
@@ -180,13 +192,6 @@ namespace CustomerBankProject
 
 
 
-
-
-               // Console.WriteLine(customer.UniqueID); // this is the action 
-              //  Console.WriteLine(customer.LastName); // this is the action 
-               // Console.WriteLine(customer.FirstName); // this is the action 
-              //  Console.WriteLine("£" + customer.CustomerMoney); // this is the action 
-             //   Console.WriteLine(customer.BaseAcceptanceChance + "%"); // this is the action 
 
                 Console.WriteLine("");
 
