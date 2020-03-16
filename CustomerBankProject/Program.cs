@@ -122,7 +122,7 @@ namespace CustomerBankProject
                     Console.WriteLine("Bank account creation successful");
                     Console.WriteLine("New bank account details:");
                     Console.WriteLine("Account Name: " + customer.LastName + " " + customer.FirstName);
-                    Console.WriteLine("Account Number: " + customer.UniqueID);
+                  // this needs to be changed to an actual account number  Console.WriteLine("Account Number: " + customer.UniqueID);
                     Console.WriteLine("Current balance: 0");
 
                     Console.WriteLine("");
@@ -190,7 +190,7 @@ namespace CustomerBankProject
 
                 Console.WriteLine("");
 
-                if(manORautochoice == "1")
+                if(manORautochoice == "1") // used to pause after each customer
                 {
                     Console.WriteLine("");
                     Console.WriteLine("Press any key to generate next customer...");
