@@ -110,7 +110,21 @@ namespace CustomerBankProject
             LastName = lname_List[NameChoice];
 
 
-            CustomerMoney = rndMoney.Next(0,99999);
+            int moneyGroup = 0;
+            moneyGroup = rndMoney.Next(1,101);
+
+            if(moneyGroup < 75)
+            {                
+               CustomerMoney = rndMoney.Next(100, 1000);
+            }
+           else if (moneyGroup < 95)
+            {
+                CustomerMoney = rndMoney.Next(1000, 5000);
+            }
+           else
+            {
+                CustomerMoney = rndMoney.Next(100000, 10000000);
+            }
 
             BaseAcceptanceChance = rndBaseChance.Next(0,100);
 
