@@ -13,8 +13,18 @@ namespace CustomerBankProject
         {
             Console.WriteLine("Welcome to the banking app");
             Console.WriteLine("How many customers would you like to generate?");
-
+           
             string generateCustomerNum = Console.ReadLine(); // Set the amount of customers to generate
+
+            Console.WriteLine("type 1 for manual mode"); // used to allow the user to generate users by button press
+
+            string manORautochoice = Console.ReadLine();
+
+            Console.Clear();
+            
+            
+            
+            
             int generateCustomerInt; // create variable to store conversion from string to int
             generateCustomerInt = Convert.ToInt32(generateCustomerNum); // convert to int
 
@@ -54,6 +64,8 @@ namespace CustomerBankProject
                 Console.WriteLine("Generated user:" + PersonIDCounter); //print last customer generated
                 PersonIDCounter++; // used to keep track of how many customers have been generated
 
+                Thread.Sleep(50);
+
 
             }
 
@@ -80,7 +92,7 @@ namespace CustomerBankProject
 
                 depChoice = rndDepChoiceNum.Next(1, 100); // compared to "baseacceptancechance" to decide whether the customer stays with the bank
 
-               Thread.Sleep(500);
+                Thread.Sleep(250);
 
 
 
@@ -140,6 +152,11 @@ namespace CustomerBankProject
              //   Console.WriteLine(customer.BaseAcceptanceChance + "%"); // this is the action 
 
                 Console.WriteLine("");
+
+                if(manORautochoice == "1")
+                {
+                    Console.ReadKey();
+                }
                 
             }
 

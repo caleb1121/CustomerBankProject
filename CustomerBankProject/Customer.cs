@@ -34,12 +34,11 @@ namespace CustomerBankProject
             UniqueID = ID; //customer ID, uses the main counter so each customer is the previous customer plus 1
 
             Random rndName = new Random();
-            Thread.Sleep(10); // used because seeds are dumb
             Random rndAge = new Random();
-            Thread.Sleep(10);
             Random rndMoney = new Random();
-            Thread.Sleep(10);
             Random rndBaseChance = new Random();
+
+
 
             String[] fname_List = new String[30];
             fname_List[0] = "James";
