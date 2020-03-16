@@ -22,12 +22,16 @@ namespace CustomerBankProject
 
         public int BaseAcceptanceChance { set; get; } // The base acceptance chance of the person accepting a bank account
 
+        public int typeOFAccount { set; get; } // The base acceptance chance of the person accepting a bank account
 
-       
-        
-        
-        
-        
+        public int MoneyInbank { set; get; } // The base acceptance chance of the person accepting a bank account
+
+
+
+
+
+
+
         public Customer(int ID)
 
         {

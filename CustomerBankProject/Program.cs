@@ -16,9 +16,19 @@ namespace CustomerBankProject
            
             string generateCustomerNum = Console.ReadLine(); // Set the amount of customers to generate
 
+
+
             Console.WriteLine("type 1 for manual mode"); // used to allow the user to generate users by button press
 
             string manORautochoice = Console.ReadLine();
+
+
+
+            Console.WriteLine("type 1 for easy read mode"); // used to allow the user to generate users by button press
+
+            string easyReadchoice = Console.ReadLine();
+
+
 
             Console.Clear();
             
@@ -39,7 +49,7 @@ namespace CustomerBankProject
             for (int i = 0; i < generateCustomerInt; i++) //generate specified number of customers
             {
                
-                // if statements below used to set console colout to represent progress of generating customers
+                // if statements below used to set console colour to represent progress of generating customers
                 
                 if(i < generateCustomerInt * 0.25)
                 { Console.ForegroundColor = ConsoleColor.DarkRed; }
@@ -96,7 +106,7 @@ namespace CustomerBankProject
 
 
 
-                if (customer.BaseAcceptanceChance > depChoice)
+                if (customer.BaseAcceptanceChance > depChoice) // The customer wishes to take out an account
                 {
 
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -126,14 +136,40 @@ namespace CustomerBankProject
                     int depositAmount = Convert.ToInt32(customer.CustomerMoney * depositPercentageFloat); // calculate deposit amount
 
 
-                    Console.WriteLine("The customer has: £" + customer.CustomerMoney + " and would like to deposit: £" + depositAmount);
+                    Console.WriteLine("The customer has: £" + customer.CustomerMoney + " and would like to deposit: £" + depositAmount); // print the total money and how much the customer wants to deposit
+
+
+                    Console.WriteLine("Convincing customer to deposit more money..."); 
+
+                    int depositNegotiate;
+                    depositNegotiate = rndDepChoiceNum.Next(0, 2); // random number used to decide whether the user deposits more money
+
+                    if(depositNegotiate == 1) // deposit more
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Success!");
+                        Console.ResetColor();
+
+                        depositAmount = depositAmount + depositAmount / 10; // calculate new deposit amount
+
+                        Console.WriteLine("New deposit amount: £" + depositAmount);
+                    }
+
+                    else // don't deposit more
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Failed...");
+                        Console.ResetColor();
+                    }
 
 
 
 
                 }
 
-                else
+
+
+                else // customer leaves the bank without opening an account
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("The customer wasn't impressed and left...");
@@ -155,7 +191,13 @@ namespace CustomerBankProject
 
                 if(manORautochoice == "1")
                 {
+                    Console.WriteLine("");
+                    Console.WriteLine("Press any key to generate next customer...");
                     Console.ReadKey();
+
+                    if(easyReadchoice == "1")
+                    { Console.Clear(); }
+                    
                 }
                 
             }

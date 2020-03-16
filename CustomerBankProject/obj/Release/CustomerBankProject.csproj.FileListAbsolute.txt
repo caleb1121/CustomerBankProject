@@ -1,0 +1,7 @@
+C:\Users\spunk\source\repos\CustomerBankProject\CustomerBankProject\bin\Release\CustomerBankProject.exe.config
+C:\Users\spunk\source\repos\CustomerBankProject\CustomerBankProject\bin\Release\CustomerBankProject.exe
+C:\Users\spunk\source\repos\CustomerBankProject\CustomerBankProject\bin\Release\CustomerBankProject.pdb
+C:\Users\spunk\source\repos\CustomerBankProject\CustomerBankProject\obj\Release\CustomerBankProject.csprojAssemblyReference.cache
+C:\Users\spunk\source\repos\CustomerBankProject\CustomerBankProject\obj\Release\CustomerBankProject.csproj.CoreCompileInputs.cache
+C:\Users\spunk\source\repos\CustomerBankProject\CustomerBankProject\obj\Release\CustomerBankProject.exe
+C:\Users\spunk\source\repos\CustomerBankProject\CustomerBankProject\obj\Release\CustomerBankProject.pdb
