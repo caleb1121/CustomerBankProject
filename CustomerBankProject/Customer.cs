@@ -23,6 +23,11 @@ namespace CustomerBankProject
         public int BaseAcceptanceChance { set; get; } // The base acceptance chance of the person accepting a bank account
 
 
+       
+        
+        
+        
+        
         public Customer(int ID)
 
         {
@@ -110,6 +115,8 @@ namespace CustomerBankProject
             LastName = lname_List[NameChoice];
 
 
+           
+            
             int moneyGroup = 0;
             moneyGroup = rndMoney.Next(1,101);
 

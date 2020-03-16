@@ -14,28 +14,33 @@ namespace CustomerBankProject
             Console.WriteLine("Welcome to the banking app");
             Console.WriteLine("How many customers would you like to generate?");
 
-            string generateCustomerNum = Console.ReadLine();
-            int generateCustomerInt;
-
+            string generateCustomerNum = Console.ReadLine(); // Set the amount of customers to generate
+            int generateCustomerInt; // create variable to store conversion from string to int
             generateCustomerInt = Convert.ToInt32(generateCustomerNum); // convert to int
 
 
 
-            int PersonIDCounter = 0; // incremental counter "cus1 cus2... etc"
-            List<Customer> Customers = new List<Customer>(); // used to store all the customers generated
+            int PersonIDCounter = 0; // incremental counter "customer1 customer2... etc"
+            List<Customer> Customers = new List<Customer>(); // used to store all the customers generated using a list
 
 
 
 
-            for (int i = 0; i < generateCustomerInt; i++) //generate 100 customers
+            for (int i = 0; i < generateCustomerInt; i++) //generate specified number of customers
             {
+               
+                // if statements below used to set console colout to represent progress of generating customers
+                
                 if(i < generateCustomerInt * 0.25)
-                { Console.ForegroundColor = ConsoleColor.Red; }
+                { Console.ForegroundColor = ConsoleColor.DarkRed; }
 
                 else if (i < generateCustomerInt * 0.50)
-                { Console.ForegroundColor = ConsoleColor.Yellow; }
+                { Console.ForegroundColor = ConsoleColor.Red; }
 
                 else if (i < generateCustomerInt * 0.75)
+                { Console.ForegroundColor = ConsoleColor.Yellow; }
+
+                else if (i < generateCustomerInt * 0.99)
                 { Console.ForegroundColor = ConsoleColor.Green; }
 
 
@@ -47,16 +52,16 @@ namespace CustomerBankProject
 
                 
                 Console.WriteLine("Generated user:" + PersonIDCounter); //print last customer generated
-                PersonIDCounter++; // don't be dumb
+                PersonIDCounter++; // used to keep track of how many customers have been generated
 
 
             }
 
 
-            Console.ResetColor(); // reset colour
-            Console.Clear();
-
-
+           
+            
+            Console.ResetColor(); // reset colour after changing colour to represent generation progress
+            Console.Clear(); // clear console to remove customer generation data from the screen
 
 
 
@@ -73,19 +78,22 @@ namespace CustomerBankProject
 
 
 
-                depChoice = rndDepChoiceNum.Next(1, 100);
+                depChoice = rndDepChoiceNum.Next(1, 100); // compared to "baseacceptancechance" to decide whether the customer stays with the bank
 
-               Thread.Sleep(1000);
+               Thread.Sleep(500);
 
 
 
                 if (customer.BaseAcceptanceChance > depChoice)
                 {
+
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Success!");
+                    Console.ResetColor();
 
                     Console.WriteLine("The customer is entering their info and setting up an account");
 
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1); // can be used to slow program down to make it easier to read
 
                     Console.WriteLine("");
 
@@ -98,8 +106,8 @@ namespace CustomerBankProject
                     Console.WriteLine("");
 
 
-                    int depositPercentageInt;
-                    float depositPercentageFloat;
+                    int depositPercentageInt; // how much of the customers money they wish to deposit
+                    float depositPercentageFloat; // same as above butused to convert it into a float
                     depositPercentageInt = rndDepChoiceNum.Next(10, 70); // after division will be between 0.1 to 0.7
                     depositPercentageFloat = depositPercentageInt / 100.0f;
 
@@ -115,7 +123,9 @@ namespace CustomerBankProject
 
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("The customer wasn't impressed and left...");
+                    Console.ResetColor();
                 }
 
 
@@ -130,6 +140,7 @@ namespace CustomerBankProject
              //   Console.WriteLine(customer.BaseAcceptanceChance + "%"); // this is the action 
 
                 Console.WriteLine("");
+                
             }
 
         }
