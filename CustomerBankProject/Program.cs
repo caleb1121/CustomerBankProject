@@ -163,6 +163,7 @@ namespace CustomerBankProject
                     }
 
 
+                    Console.WriteLine("Talking to customer about bank account types...");
 
 
                 }
