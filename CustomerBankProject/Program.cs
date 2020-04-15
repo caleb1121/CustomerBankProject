@@ -9,7 +9,7 @@ namespace CustomerBankProject
 {
     class Program
     {
-        static void Main(string[] args)
+         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the banking app");
             Console.WriteLine("How many customers would you like to generate?");
@@ -32,7 +32,7 @@ namespace CustomerBankProject
 
             Console.Clear();
             
-            
+
             
             
             int generateCustomerInt; // create variable to store conversion from string to int
@@ -85,126 +85,154 @@ namespace CustomerBankProject
             Console.ResetColor(); // reset colour after changing colour to represent generation progress
             Console.Clear(); // clear console to remove customer generation data from the screen
 
+            runprogram();
 
 
-
-
-            foreach (Customer customer in Customers) //used to loop through every customer and perform action
+            void runprogram()
             {
-                
-                Random rndDepChoiceNum = new Random();
-                int depChoice;
+                Console.WriteLine("Please choose one of the following options:");
+                Console.WriteLine("1. Simulate next day");
+                Console.WriteLine("2. search bank records");
+                Console.WriteLine("3. Quit");
 
-                Console.WriteLine(customer.FirstName + " walked into the bank");
-                Console.WriteLine("Bank Teller negotiating with client... ");
+                string Userchoice = Console.ReadLine();
 
 
-
-                depChoice = rndDepChoiceNum.Next(1, 100); // compared to "baseacceptancechance" to decide whether the customer stays with the bank
-
-                Thread.Sleep(250);
+                if (Userchoice == "1")
+                { simulateBankDay(); }
 
 
 
-                if (customer.BaseAcceptanceChance > depChoice) // The customer wishes to take out an account
+
+                void simulateBankDay()
                 {
 
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("Success!");
-                    Console.ResetColor();
 
-                    Console.WriteLine("The customer is entering their info and setting up an account");
-
-                    Thread.Sleep(1); // can be used to slow program down to make it easier to read
-
-                    Console.WriteLine("");
-
-                    Console.WriteLine("Bank account creation successful");
-                    Console.WriteLine("New bank account details:");
-                    Console.WriteLine("Account Name: " + customer.LastName + " " + customer.FirstName);
-                  // this needs to be changed to an actual account number  Console.WriteLine("Account Number: " + customer.UniqueID);
-                    Console.WriteLine("Current balance: 0");
-
-                    Console.WriteLine("");
-
-
-                    int depositPercentageInt; // how much of the customers money they wish to deposit
-                    float depositPercentageFloat; // same as above butused to convert it into a float
-                    depositPercentageInt = rndDepChoiceNum.Next(10, 70); // after division will be between 0.1 to 0.7
-                    depositPercentageFloat = depositPercentageInt / 100.0f;
-
-                    int depositAmount = Convert.ToInt32(customer.CustomerMoney * depositPercentageFloat); // calculate deposit amount
-
-
-                    Console.WriteLine("The customer has: £" + customer.CustomerMoney + " and would like to deposit: £" + depositAmount); // print the total money and how much the customer wants to deposit
-
-
-                    Console.WriteLine("Convincing customer to deposit more money..."); 
-
-                    int depositNegotiate;
-                    depositNegotiate = rndDepChoiceNum.Next(0, 2); // random number used to decide whether the user deposits more money
-
-                    if(depositNegotiate == 1) // deposit more
+                    foreach (Customer customer in Customers) //used to loop through every customer and perform action
                     {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Success!");
-                        Console.ResetColor();
-
-                        depositAmount = depositAmount + depositAmount / 10; // calculate new deposit amount
-
-                        Console.WriteLine("New deposit amount: £" + depositAmount);
-                    }
-
-                    else // don't deposit more
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Failed...");
-                        Console.ResetColor();
-                    }
 
 
-                    Console.WriteLine("Talking to customer about bank account types...");
 
+                        Random rndDepChoiceNum = new Random();
+                        int depChoice;
+
+
+
+                        depChoice = rndDepChoiceNum.Next(1, 100); // compared to "baseacceptancechance" to decide whether the customer stays with the bank
+
+                        Thread.Sleep(250);
+
+
+
+                        if (customer.BaseAcceptanceChance > depChoice) // The customer wishes to take out an account
+                        {
+
+                            Console.WriteLine(customer.FirstName + " walked into the bank");
+
+                            Thread.Sleep(1); // can be used to slow program down to make it easier to read
+
+
+
+                            int depositPercentageInt; // how much of the customers money they wish to deposit
+                            float depositPercentageFloat; // same as above butused to convert it into a float
+                            depositPercentageInt = rndDepChoiceNum.Next(10, 70); // after division will be between 0.1 to 0.7
+                            depositPercentageFloat = depositPercentageInt / 100.0f;
+
+                            int depositAmount = Convert.ToInt32(customer.CustomerMoney * depositPercentageFloat); // calculate deposit amount
+
+
+                            Console.WriteLine("The customer has: £" + customer.CustomerMoney + " and would like to deposit: £" + depositAmount); // print the total money and how much the customer wants to deposit
+
+
+                            Console.WriteLine("Convincing customer to deposit more money...");
+
+                            int depositNegotiate;
+                            depositNegotiate = rndDepChoiceNum.Next(0, 2); // random number used to decide whether the user deposits more money
+
+                            if (depositNegotiate == 1) // deposit more
+                            {
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine("Success!");
+                                Console.ResetColor();
+
+                                depositAmount = depositAmount + depositAmount / 10; // calculate new deposit amount
+
+                                Console.WriteLine("New deposit amount: £" + depositAmount);
+                            }
+
+                            else // don't deposit more
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Failed...");
+                                Console.ResetColor();
+                            }
+
+                            customer.CustomerBankAccountMoney = customer.CustomerBankAccountMoney + depositAmount; // customer money is put into the bank
+                            customer.CustomerMoney = customer.CustomerMoney - depositAmount; // removing customer money from customer (because it is now in the bank account)
+
+
+                            Console.WriteLine("Customer has deposited money");
+                            Console.WriteLine("New account balance: £" + customer.CustomerBankAccountMoney);
+                            Console.WriteLine("Money on customer: £" + customer.CustomerMoney);
+
+
+
+                        }
+
+
+
+                        else // customer leaves the bank without opening an account
+                        {
+                            Console.WriteLine(customer.FirstName + " " + customer.LastName + " walked past the bank...");
+                            Console.ResetColor();
+                        }
+
+
+
+
+
+
+                        // Console.WriteLine(customer.UniqueID); // this is the action 
+                        //  Console.WriteLine(customer.LastName); // this is the action 
+                        // Console.WriteLine(customer.FirstName); // this is the action 
+                        //  Console.WriteLine("£" + customer.CustomerMoney); // this is the action 
+                        //   Console.WriteLine(customer.BaseAcceptanceChance + "%"); // this is the action 
+
+                        Console.WriteLine("");
+
+                        if (manORautochoice == "1") // used to pause after each customer
+                        {
+                            Console.WriteLine("");
+                            Console.WriteLine("Press any key to generate next customer...");
+                            Console.ReadKey();
+
+                            if (easyReadchoice == "1")
+                            { Console.Clear(); }
+
+
+                            Console.ReadKey();
+
+                        }
+
+
+                    } //simulate a bank day
 
                 }
 
-
-
-                else // customer leaves the bank without opening an account
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("The customer wasn't impressed and left...");
-                    Console.ResetColor();
-                }
-
-
-
-
-
-
-               // Console.WriteLine(customer.UniqueID); // this is the action 
-              //  Console.WriteLine(customer.LastName); // this is the action 
-               // Console.WriteLine(customer.FirstName); // this is the action 
-              //  Console.WriteLine("£" + customer.CustomerMoney); // this is the action 
-             //   Console.WriteLine(customer.BaseAcceptanceChance + "%"); // this is the action 
-
-                Console.WriteLine("");
-
-                if(manORautochoice == "1") // used to pause after each customer
-                {
-                    Console.WriteLine("");
-                    Console.WriteLine("Press any key to generate next customer...");
-                    Console.ReadKey();
-
-                    if(easyReadchoice == "1")
-                    { Console.Clear(); }
-                    
-                }
-                
             }
 
 
-            Console.ReadKey();
+
+
+
+            runprogram(); // this is not how to loop it won't work i do believe the way to fix it is to use a proper loop because the code will actually just skip past this after the first time so a goto statement or loop will work better this NEEDS TO BE FIXED!
+
+           
+                
+            
+
+
+            
         }
     }
 }

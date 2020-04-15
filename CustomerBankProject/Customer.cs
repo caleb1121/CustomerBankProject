@@ -20,7 +20,9 @@ namespace CustomerBankProject
 
         public int CustomerMoney { set; get; } // The amount of money the person walks into the bank with
 
-        public int BaseAcceptanceChance { set; get; } // The base acceptance chance of the person accepting a bank account
+        public int CustomerBankAccountMoney { set; get; } // The amount of money the person walks into the bank with
+
+        public int BaseAcceptanceChance { set; get; } // chance of the person walking into the bank
 
 
 
