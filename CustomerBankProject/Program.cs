@@ -72,7 +72,7 @@ namespace CustomerBankProject
                 { Console.ForegroundColor = ConsoleColor.Yellow; }
 
                 else if (i < generateCustomerInt * 0.99)
-                { Console.ForegroundColor = ConsoleColor.Green; }
+                  { Console.ForegroundColor = ConsoleColor.Green; }
 
 
 
@@ -114,7 +114,11 @@ namespace CustomerBankProject
 
 
                     if (Userchoice == "1")
-                    { simulateBankDay(); }
+                    { simulateBankDay(); } 
+
+
+                    if (Userchoice == "3")
+                    { System.Environment.Exit(0); }
 
 
 
@@ -205,14 +209,6 @@ namespace CustomerBankProject
 
 
 
-
-
-                            // Console.WriteLine(customer.UniqueID); // this is the action 
-                            //  Console.WriteLine(customer.LastName); // this is the action 
-                            // Console.WriteLine(customer.FirstName); // this is the action 
-                            //  Console.WriteLine("£" + customer.CustomerMoney); // this is the action 
-                            //   Console.WriteLine(customer.BaseAcceptanceChance + "%"); // this is the action 
-
                             Console.WriteLine("");
 
                             if (manORautochoice == "1") // used to pause after each customer
@@ -225,11 +221,11 @@ namespace CustomerBankProject
                                 { Console.Clear(); }
 
 
-                                Console.ReadKey();
+                                Console.ReadKey(); 
 
                             }
 
-
+                             
                         } //simulate a bank day
 
                     }
