@@ -75,7 +75,7 @@ namespace CustomerBankProject
             {
                 while(runProgram)
                 {
-                    Console.Clear(); // used to remove sim progress text 
+                    Console.Clear(); // used to remove end of day report
 
                     Console.WriteLine("Please choose one of the following options:");
                     Console.WriteLine("1. Simulate next day");
@@ -100,6 +100,11 @@ namespace CustomerBankProject
                     void simulateBankDay()
                     {
                         int simProgress = 0; // used to store current sim progress
+
+                        int totalDeposits = 0; // used to display total money put into bank at the end of each day
+                        int customerIn = 0; // customers that have entered the bank
+                        int customerOut = 0; // customer that have walked past the bank
+
 
                         foreach (Customer customer in Customers) //used to loop through every customer and perform action
                         {
@@ -149,13 +154,18 @@ namespace CustomerBankProject
                                 customer.CustomerBankAccountMoney = customer.CustomerBankAccountMoney + depositAmount; // customer money is put into the bank
                                 customer.CustomerMoney = customer.CustomerMoney - depositAmount; // removing customer money from customer (because it is now in the bank account)
 
+                                // everything below is used to calculate end of day report
+
+                               totalDeposits = totalDeposits + depositAmount; // add each customers deposit to total deposits
+                               customerIn = customerIn+1; // count customer that have entered the bank
+
                             }
 
 
 
                             else // customer walks past the bank instead
                             {
-
+                                customerOut = customerOut+1; // count customers that have walked past the bank
                             }
 
                             
@@ -165,8 +175,14 @@ namespace CustomerBankProject
 
                         } //simulate a bank day
 
-
+                        Console.Clear(); // clear bank progress counter
                         Console.WriteLine("End of day report:");
+                        Console.WriteLine("Total deposits: £" + totalDeposits);
+                        Console.WriteLine("Customers that entered the bank: " + customerIn);
+                        Console.WriteLine("Customers that walked past the bank: " + customerOut);
+
+                        Console.ReadKey();
+
 
                     }
 
