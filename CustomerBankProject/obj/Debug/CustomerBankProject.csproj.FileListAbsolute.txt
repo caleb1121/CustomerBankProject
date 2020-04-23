@@ -11,3 +11,10 @@ C:\Users\spunk\Documents\CustomerBankProject\CustomerBankProject\bin\Debug\Custo
 C:\Users\spunk\Documents\CustomerBankProject\CustomerBankProject\obj\Debug\CustomerBankProject.csprojAssemblyReference.cache
 C:\Users\spunk\Documents\CustomerBankProject\CustomerBankProject\obj\Debug\CustomerBankProject.exe
 C:\Users\spunk\Documents\CustomerBankProject\CustomerBankProject\obj\Debug\CustomerBankProject.pdb
+C:\Users\spunk\source\repos\Customer Bank Project\CustomerBankProject\bin\Debug\CustomerBankProject.exe.config
+C:\Users\spunk\source\repos\Customer Bank Project\CustomerBankProject\bin\Debug\CustomerBankProject.exe
+C:\Users\spunk\source\repos\Customer Bank Project\CustomerBankProject\bin\Debug\CustomerBankProject.pdb
+C:\Users\spunk\source\repos\Customer Bank Project\CustomerBankProject\obj\Debug\CustomerBankProject.csprojAssemblyReference.cache
+C:\Users\spunk\source\repos\Customer Bank Project\CustomerBankProject\obj\Debug\CustomerBankProject.csproj.CoreCompileInputs.cache
+C:\Users\spunk\source\repos\Customer Bank Project\CustomerBankProject\obj\Debug\CustomerBankProject.exe
+C:\Users\spunk\source\repos\Customer Bank Project\CustomerBankProject\obj\Debug\CustomerBankProject.pdb
