@@ -114,13 +114,13 @@ namespace CustomerBankProject
 
 
 
-                            depChoice = rndDepChoiceNum.Next(1, 100); // compared to "baseacceptancechance" to decide whether the customer stays with the bank
+                            depChoice = rndDepChoiceNum.Next(1, 200); // compared to "baseacceptancechance" to decide whether the customer stays with the bank (was originally 1, 100)
 
                             Thread.Sleep(10); // used to slow sim down to help random number generator
 
 
 
-                            if (customer.BaseAcceptanceChance > depChoice) // The customer wishes to take out an account
+                            if (customer.BaseAcceptanceChance > depChoice) // The customer walks into the bank 
                             {                               
 
                                 Thread.Sleep(1); // can be used to slow program down to make it easier to read
@@ -177,7 +177,7 @@ namespace CustomerBankProject
 
                         Console.Clear(); // clear bank progress counter
                         Console.WriteLine("End of day report:");
-                        Console.WriteLine("Total deposits: £" + totalDeposits);
+                        Console.WriteLine("Total deposits: £" + totalDeposits); // Format into currency at some point!!!
                         Console.WriteLine("Customers that entered the bank: " + customerIn);
                         Console.WriteLine("Customers that walked past the bank: " + customerOut);
 

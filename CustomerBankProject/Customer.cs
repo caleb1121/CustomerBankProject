@@ -136,7 +136,7 @@ namespace CustomerBankProject
                 CustomerMoney = rndMoney.Next(100000, 10000000);
             }
 
-            BaseAcceptanceChance = rndBaseChance.Next(0,100);
+            BaseAcceptanceChance = rndBaseChance.Next(0,100); // used to determine whether someone walks into the bank
 
 
         }
